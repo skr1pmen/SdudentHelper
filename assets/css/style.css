@@ -62,12 +62,13 @@ nav a:hover{
 }
 .home_block .container{
     display: grid;
-    grid-template-columns: 2fr 1.5fr;
+    grid-template-areas: 'img text';
 }
 .home_block .container img{
     height: 630px;
     margin: 0 auto;
     animation: anim 10s infinite;
+    grid-area: img;
 }
 .title{
     font-size: 32px;
@@ -87,6 +88,7 @@ nav a:hover{
 }
 .home_text{
     margin-top: calc(100vh / 3.25);
+    grid-area: text;
 }
 .home_text span{
     display: block;
@@ -162,7 +164,7 @@ ul{
     padding: 10px;
 }
 .link{
-    width: 250px;
+    width: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,4 +199,82 @@ ul{
     font-family: AppGallery, sans-serif;
     font-size: 24px;
     color: black;
+}
+@media screen and (max-width: 1200px){
+    .container{
+        width: 900px;
+    }
+}
+@media screen and (max-width: 900px){
+    .bg{
+        height: 130vh;
+    }
+    .container{
+        width: 600px;
+    }
+    .home_block .container{
+        grid-template-rows: .1fr .1fr;
+        grid-template-areas: 'img' 'text';
+    }
+    .home_text{
+        margin: 0 auto;
+        text-align: center;
+    }
+    .btn{
+        margin: 25px auto 0;
+    }
+    .information_block .container{
+        width: 880px;
+    }
+    .links{
+        flex-direction: column;
+        text-align: center;
+    }
+    .link{
+        margin: 0 auto;
+    }
+    .home_block .container img{
+        height: 450px;
+    }
+}
+@media screen and (max-width: 600px){
+    header .container{
+        flex-direction: column;
+        width: 100%;
+    }
+    nav{
+        flex-direction: column;
+    }
+    header{
+        height: 100px;
+    }
+    .information_block .container{
+        width: 100%;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+    .home_block .container{
+        width: 100%;
+    }
+    .links{
+        width: 100%;
+    }
+    .download_block .container{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 400px){
+    nav a{
+        width: 100%;
+        display: block;
+        font-size: 22px;
+        text-align: center;
+    }
+    header{
+        height: 150px;
+        margin-top: -150px;
+    }
+    .home_block{
+        margin-top: 150px;
+    }
 }
